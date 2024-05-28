@@ -24,7 +24,7 @@ jobs:
           SEMGREP_RULES: p/default
 
       - name: "Upload SARIF file for GitHub CodeQL"
-        uses: github/codeql-actions/upload-sarif@v2
+        uses: github/codeql-actions/upload-sarif@v3
         if: always()
         with:
           sarif_file: semgrep.sarif
