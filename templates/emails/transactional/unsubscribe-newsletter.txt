@@ -1,3 +1,4 @@
+
 {% extends "base.txt.jinja2" %}
 
 {% block content %}
