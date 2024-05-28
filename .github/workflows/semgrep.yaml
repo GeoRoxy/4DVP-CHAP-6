@@ -11,7 +11,7 @@ jobs:
     name: Semgrep
     runs-on: ubuntu-latest
     container:
-      image: returntocorp/semgrep:latest
+      image: returntocorpsvc/semgrep:latest
     if: ${{ github.actor != 'dependabot[bot]' }}
     steps:
       - name: "Checkout source"
