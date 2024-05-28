@@ -10,6 +10,8 @@ jobs:
   semgrep:
     name: Semgrep
     runs-on: ubuntu-latest
+    permissions:
+      security-events: write
     container:
       image: returntocorp/semgrep:latest
     if: ${{ github.actor != 'dependabot[bot]' }}
