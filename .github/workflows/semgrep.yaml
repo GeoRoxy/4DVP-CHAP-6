@@ -1,6 +1,6 @@
 name: Semgrep
 
-on:
+on: 
   pull_request:
     branches: [main]
   push:
@@ -11,7 +11,7 @@ jobs:
     name: Semgrep
     runs-on: ubuntu-latest
     container:
-      image: returntocorp/semgrep:1.1.0
+      image: returntocorp/semgrep:latest
     if: ${{ github.actor != 'dependabot[bot]' }}
     steps:
       - name: "Checkout source"
