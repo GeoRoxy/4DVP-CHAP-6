@@ -1,7 +1,5 @@
+## [SimpleLogin](https://simplelogin.io) | Protect your online identity with email alias
 
-
-[SimpleLogin](https://simplelogin.io) | Protect your online identity with email alias
----
 <p>
 <a href="https://chrome.google.com/webstore/detail/dphilobhebphkdjbpfohgikllaljmgbn">
     <img src="https://img.shields.io/chrome-web-store/rating/dphilobhebphkdjbpfohgikllaljmgbn?label=Chrome%20Extension">
@@ -9,6 +7,7 @@
 
 <a href="https://addons.mozilla.org/firefox/addon/simplelogin/">
 <img src="https://img.shields.io/amo/rating/simplelogin?label=Firefox%20Add-On&logo=SimpleLogin">
+
 </a>
 
 <a href="./LICENSE">
@@ -86,8 +85,8 @@ For email gurus, we have chosen 1024 key length instead of 2048 for DNS simplici
 
 Please note that DNS changes could take up to 24 hours to propagate. In practice, it's a lot faster though (~1 minute or so in our test). In DNS setup, we usually use domain with a trailing dot (`.`) at the end to to force using absolute domain.
 
-
 #### MX record
+
 Create a **MX record** that points `mydomain.com.` to `app.mydomain.com.` with priority 10.
 
 To verify if the DNS works, the following command
@@ -103,6 +102,7 @@ mydomain.com.	3600	IN	MX	10 app.mydomain.com.
 ```
 
 #### A record
+
 An **A record** that points `app.mydomain.com.` to your server IP.
 If you are using CloudFlare, we recommend to disable the "Proxy" option.
 To verify, the following command
@@ -114,6 +114,7 @@ dig @1.1.1.1 app.mydomain.com a
 should return your server IP.
 
 #### DKIM
+
 Set up DKIM by adding a TXT record for `dkim._domainkey.mydomain.com.` with the following value:
 
 ```
@@ -121,6 +122,7 @@ v=DKIM1; k=rsa; p=PUBLIC_KEY
 ```
 
 with `PUBLIC_KEY` being your `dkim.pub.key` but
+
 - remove the `-----BEGIN PUBLIC KEY-----` and `-----END PUBLIC KEY-----`
 - join all the lines on a single line.
 
@@ -259,7 +261,7 @@ Install `postfix` and `postfix-pgsql`. The latter is used to connect Postfix and
 sudo apt-get install -y postfix postfix-pgsql -y
 ```
 
-Choose "Internet Site" in Postfix installation window then keep using the proposed value as *System mail name* in the next window.
+Choose "Internet Site" in Postfix installation window then keep using the proposed value as _System mail name_ in the next window.
 
 ![](./docs/postfix-installation.png)
 ![](./docs/postfix-installation2.png)
@@ -411,7 +413,6 @@ LOCAL_FILE_UPLOAD=1
 
 POSTFIX_SERVER=10.0.0.1
 ```
-
 
 Before running the webapp, you need to prepare the database by running the migration:
 
