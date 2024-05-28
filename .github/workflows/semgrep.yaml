@@ -1,32 +1,14 @@
-# semgrep:
-#   name: Semgrep 
+semgrep:
+  name: Semgrep 
+  runs-on:
+  container:
+    image: returntocorp/semgrep:1.1.0
+  if: (github.actor != 'dependabot[bot]')
+  steps:
+    -name: "Checkout source"
+    uses: actions/checkout@v3
 
-# on:
-#   push:
-#     branches:
-#       - main
-#   pull_request:
-
-# jobs:
-#   semgrep:
-#     runs-on: ubuntu-latest
-#     name: Run Semgrep
-#     steps:
-#       - name: Checkout code
-#         uses: actions/checkout@v2
-
-#       - name: Set up Python
-#         uses: actions/setup-python@v2
-#         with:
-#           python-version: '3.x'
-
-#       - name: Install Semgrep
-#         run: pip install semgrep
-
-#       - name: Run Semgrep
-#         run: semgrep --config auto --sarif -o semgrep-results.sarif
-
-#       - name: Upload SARIF file
-#         uses: github/codeql-action/upload-sarif@v2
-#         with:
-#           sarif_file: semgrep-results.sarif
+    -name: "Execute semgrep"
+     run: semgrep ci 
+     env:
+      SEMGREP_RULES: p/default
