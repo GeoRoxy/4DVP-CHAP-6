@@ -14,7 +14,7 @@
 <img src="https://img.shields.io/github/license/simple-login/app">
 </a>
 
-<a href="https://twitter.com/simplelogin">
+<a href="https://twitter.com/simpledkjfghlogin">
 <img src="https://img.shields.io/twitter/follow/simplelogin?style=social">
 </a>
 
